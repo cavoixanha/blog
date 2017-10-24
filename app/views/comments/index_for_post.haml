@@ -1,0 +1,7 @@
+- model_class = Comment
+.page-header
+  %h2=t '.title', :default => model_class.model_name.human.pluralize.titleize
+%section.comments
+  = render partial: 'comments/comment', collection: @comments
+%div.clearfix
+= link_to t('.new', :default => t("helpers.links.new")), new_comment_for_post_post_comments_path(@post), :class => 'btn btn-primary'

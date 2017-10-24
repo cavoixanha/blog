@@ -1,0 +1,9 @@
+= simple_form_for @comment, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :message
+  = f.error_span :message
+  -#= f.association :post, collection: Post.all, selected: @post.id
+  -#= f.error_span :post_id
+  = f.input :post_id, as: :hidden, input_html: { value: @post.id }
+  = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), post_path(@post), :class => 'btn btn-default'
